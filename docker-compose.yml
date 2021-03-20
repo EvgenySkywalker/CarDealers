@@ -1,0 +1,31 @@
+version: "3"
+
+volumes:
+  database-data:
+
+services:
+
+  db:
+    image: postgres
+    env_file:
+      - database.env
+    volumes:
+      - database-data:/c/car_dealers/postgresql/data/
+    ports:
+      - 5432:5432
+
+  backend:
+    image: app
+    command: python run.py
+    ports:
+      - 80:8000
+    depends_on:
+      - db
+      - migration
+
+  migration:
+    build: .
+    image: app
+    command: alembic upgrade head
+    depends_on:
+      - db
