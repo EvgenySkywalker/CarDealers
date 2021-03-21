@@ -1,6 +1,7 @@
 FROM python:3.9
 
-ADD . /backend
+ADD backend /backend
+ADD service_scripts /service_scripts
 
 WORKDIR /backend
 

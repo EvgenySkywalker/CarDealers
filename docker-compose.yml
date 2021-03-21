@@ -26,6 +26,6 @@ services:
   migration:
     build: .
     image: app
-    command: alembic upgrade head
+    command: /service_scripts/wait_for_it.sh db:5432 -s -- alembic upgrade head
     depends_on:
       - db
