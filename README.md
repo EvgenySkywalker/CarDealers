@@ -1,5 +1,5 @@
 # CarDealers
-PET Project
+Pet Project
 
 Фреймворк: FastAPI
 БД: postgresql
