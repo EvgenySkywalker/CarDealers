@@ -35,7 +35,7 @@ def get_all():
 @router.get('/{dealer_id}', response_model=dealer_schema.Dealer)
 def get(dealer_id: int):
 	"""
-	Возвращает донные конкретного дилера в JSON
+	Возвращает данные конкретного дилера в JSON
 	"""
 
 	with session_scope() as session:
